@@ -35,6 +35,21 @@ public final class Constants {
     // conversion pour un éventuel bras comportant un gearbox  - doit considérer gear ratio
 
     public static final double kArmEncoderTicks2Meters = 360.0/512 * 0.1524 * 26/42 * 60*18 *18/84;
+
+    // il faudrait essayer cdette formule la voir si les data concorde
+    public final double kEncoderTick2Cm = 1.0/128*(15.24*Math.PI/30.48);
+
+
+    // nouvelle constantes pour balancement sur station de recharge
+
+    public static final double ANGLE_VISEE_POUR_BALANCEMENT = 0.0;
+    public static final double SEUIL_ANGLE_POUR_BALANCEMENT = 1.0;
+    public static final double VITESSE_MOTEURS_BALANCEMENT_KP = 0.015; // P (Proportional) constant of a PID loop
+ 
+    public static final double BLANCEMENT_ARRIERE_EXTRA_PUISSANCE_MOTEURS = 1.35;
+
+
+
     
   }
 

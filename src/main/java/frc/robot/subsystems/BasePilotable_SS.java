@@ -116,6 +116,12 @@ public class BasePilotable_SS extends SubsystemBase {
     return m_LeftFrontMotor3.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M;
   }
 
+  public double getAverageEncoderDistance() {
+    return (getRightEncoderValue() + getLeftEncoderValue()) / 2 ;
+  }
+
+
+
  
       // -------------Code non utilisé , à modfier ou enlever ------------------------//
         public Boolean driveDistanceCM(double motorSpeed, double CMToDrive, Boolean resetEncoder) {
