@@ -41,18 +41,18 @@ public class CS_PIDBalance_CMD extends CommandBase {
 
     angleActuel = m_BasePilotable_SS.getPitch();
     erreur = Constants.BP_Constants.ANGLE_VISEE_POUR_BALANCEMENT - angleActuel;
-    puissanceMoteur = -Math.min(Constants.BP_Constants.VITESSE_MOTEURS_BALANCEMENT_KP * erreur, 1);
+    puissanceMoteur = Math.min(Constants.BP_Constants.VITESSE_MOTEURS_BALANCEMENT_KP * erreur, 1);
+   
 
-
- // plus de puissance pour le robot reculant, il faudra ajuster la constante
- if (puissanceMoteur < 0) {
-  puissanceMoteur *= Constants.BP_Constants.BLANCEMENT_ARRIERE_EXTRA_PUISSANCE_MOTEURS;
-}
+    // plus de puissance pour le robot reculant, il faudra ajuster la constante
+   if (puissanceMoteur < 0) {
+    puissanceMoteur *= Constants.BP_Constants.BLANCEMENT_ARRIERE_EXTRA_PUISSANCE_MOTEURS;
+    }
 
    // Limit the max power
    if (Math.abs(puissanceMoteur) > 0.4) {
     puissanceMoteur = Math.copySign(0.4, puissanceMoteur);
-  }
+    }
 
     m_BasePilotable_SS.tankDrive(puissanceMoteur, puissanceMoteur);
 

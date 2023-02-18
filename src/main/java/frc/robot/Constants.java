@@ -30,7 +30,9 @@ public final class Constants {
 
     public static final boolean kGyroReversed = true;
 
-    public static final double kEncoderTicks2M = 1.0/4096 * 15.24 * Math.PI/1;
+    public static final double kEncoderTicks2M = 1.0/4096 * 0.1524 * Math.PI/1;
+
+    public static final double kEncoderM2Ticks = 4096/0.1524 / Math.PI;
 
     // conversion pour un éventuel bras comportant un gearbox  - doit considérer gear ratio
 

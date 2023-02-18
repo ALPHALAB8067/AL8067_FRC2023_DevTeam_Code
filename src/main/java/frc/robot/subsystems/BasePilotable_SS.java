@@ -226,6 +226,8 @@ public class BasePilotable_SS extends SubsystemBase {
     //Affichage des valeurs des enncodeurs dans le shuffleboard 
     SmartDashboard.putNumber("Encodeur_Gauche", m_RightFrontMotor1.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M); 
     SmartDashboard.putNumber("Encodeur_Droite", m_LeftFrontMotor3.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M); 
+    SmartDashboard.putNumber("Encodeur_Gauche_Raw", m_RightFrontMotor1.getSelectedSensorPosition()); 
+    SmartDashboard.putNumber("Encodeur_Droit_Raw", m_LeftFrontMotor3.getSelectedSensorPosition()); 
 
 
     
