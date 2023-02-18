@@ -21,7 +21,7 @@ public final class Constants {
     public static final int kCTREMagEncoderTicks = 4096;
     public static final double kWheelDiameterMeters = 0.15;   
     public static final double kEncoderDistancePerPulse = (kWheelDiameterMeters * Math.PI) / (double) kCTREMagEncoderTicks;
-
+    
 
     public static final double DIAMETRE_ROUE= 15.24; // 6" en cm
     public static final double CIRCONFERENCE_ROUE= (DIAMETRE_ROUE * Math.PI);
@@ -45,8 +45,13 @@ public final class Constants {
     // nouvelle constantes pour balancement sur station de recharge
 
     public static final double ANGLE_VISEE_POUR_BALANCEMENT = 0.0;
-    public static final double SEUIL_ANGLE_POUR_BALANCEMENT = 1.0;
-    public static final double VITESSE_MOTEURS_BALANCEMENT_KP = 0.015; // P (Proportional) constant of a PID loop
+    public static final double SEUIL_ANGLE_POUR_BALANCEMENT = 3.0;
+    public static final double VITESSE_MOTEURS_BALANCEMENT_KP = 0.035; // P (Proportional) constant of a PID loop
+
+    public static final double VITESSE_MOTEURS_BALANCEMENT_KI = 0;    
+    public static final double VITESSE_MOTEURS_BALANCEMENT_KD = 0;
+
+
  
     public static final double BLANCEMENT_ARRIERE_EXTRA_PUISSANCE_MOTEURS = 1.35;
 

@@ -80,7 +80,7 @@ public class RobotContainer {
 
     m_Xbox_Manette1.a().onTrue(m_DriveToDistance_CMD);
 
-    m_Xbox_Manette1.x().onTrue(m_CS_PIDBalance_CMD); 
+    m_Xbox_Manette1.x().whileTrue(m_CS_PIDBalance_CMD.withTimeout(15)); 
 
 
 
