@@ -20,7 +20,8 @@ public class DriveToDistance_CMD extends CommandBase {
   // variables pour PID
   private final double kP = 0.08;
 
-  private double setPoint = 0;
+  //private double setPoint = 0;
+  private double setPoint;
   private double encoderPostion;
   private double error;
   private double motorSpeedPID;
@@ -53,7 +54,7 @@ public class DriveToDistance_CMD extends CommandBase {
   @Override
   public void execute() {
 
-    encoderPostion =m_BasePilotable_SS.getLeftEncoderValue() * Constants.BP_Constants.kEncoderTicks2M;
+    encoderPostion =m_BasePilotable_SS.getRightEncoderValue();
     error = setPoint - encoderPostion;
     motorSpeedPID = kP * error;
     // TO DO - verrifier s'il ne faut pas donner une valeur négative à un des moteurs 
@@ -77,7 +78,7 @@ public class DriveToDistance_CMD extends CommandBase {
   public boolean isFinished() {
     //return false;
 
-      return Math.abs(error) <= 3.8;
+      return Math.abs(error) <= 0.5;
 
   }
 }

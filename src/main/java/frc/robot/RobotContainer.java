@@ -6,6 +6,7 @@ package frc.robot;
 
 
 import frc.robot.commands.Autos;
+import frc.robot.commands.CS_PIDBalance_CMD;
 import frc.robot.commands.DriveToDistance_CMD;
 import frc.robot.commands.DriveWJoystick_CMD;
 import frc.robot.commands.ExampleCommand;
@@ -38,7 +39,7 @@ public class RobotContainer {
   private final DriveWJoystick_CMD m_DriveWJoystick_CMD = new DriveWJoystick_CMD(m_BasePilotable_SS, m_joystick, m_pourcentageVitesse);
   
   private final DriveToDistance_CMD  m_DriveToDistance_CMD = new DriveToDistance_CMD(m_BasePilotable_SS, setPoint);
-
+  private final CS_PIDBalance_CMD  m_CS_PIDBalance_CMD = new CS_PIDBalance_CMD(m_BasePilotable_SS);
 
 
   
@@ -78,6 +79,11 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
 
     m_Xbox_Manette1.a().onTrue(m_DriveToDistance_CMD);
+
+    m_Xbox_Manette1.x().whileTrue(m_CS_PIDBalance_CMD.withTimeout(15)); 
+
+
+
   }
 
 

@@ -116,6 +116,12 @@ public class BasePilotable_SS extends SubsystemBase {
     return m_LeftFrontMotor3.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M;
   }
 
+  public double getAverageEncoderDistance() {
+    return (getRightEncoderValue() + getLeftEncoderValue()) / 2 ;
+  }
+
+
+
  
       // -------------Code non utilisé , à modfier ou enlever ------------------------//
         public Boolean driveDistanceCM(double motorSpeed, double CMToDrive, Boolean resetEncoder) {
@@ -220,6 +226,8 @@ public class BasePilotable_SS extends SubsystemBase {
     //Affichage des valeurs des enncodeurs dans le shuffleboard 
     SmartDashboard.putNumber("Encodeur_Gauche", m_RightFrontMotor1.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M); 
     SmartDashboard.putNumber("Encodeur_Droite", m_LeftFrontMotor3.getSelectedSensorPosition()* Constants.BP_Constants.kEncoderTicks2M); 
+    SmartDashboard.putNumber("Encodeur_Gauche_Raw", m_RightFrontMotor1.getSelectedSensorPosition()); 
+    SmartDashboard.putNumber("Encodeur_Droit_Raw", m_LeftFrontMotor3.getSelectedSensorPosition()); 
 
 
     
@@ -228,6 +236,7 @@ public class BasePilotable_SS extends SubsystemBase {
     SmartDashboard.putNumber("Gyro Z(Yaw)",m_gyroNavX.getYaw());
 
   }
+
 
 
 }
